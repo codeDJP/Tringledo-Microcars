@@ -1,20 +1,103 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f5f6f5;
+    color: #333;
+    line-height: 1.2;
     text-align: center;
 }
-
-header {
-    background-color: #d71920;
-    color: white;
-    padding: 20px;
+h2{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-h1 {
+.top-bar h1 {
     margin: 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #222;
+    flex-grow: 1;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.logo-container {
+    position: relative;
+    display: inline-block;
+}
+
+.logo {
+    max-height: 60px;
+    width: auto;
+    transition: transform 0.1s ease;
+    object-fit: contain;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.micro-logo {
+    width: auto;
+    height: auto;
+    max-height: 60px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.mg-logo {
+    width: auto;
+    max-height: 60px;
+	margin-left: -30px;
+}
+
+.logo-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.micro-logo-link {
+    text-decoration: none;
+}
+
+.tringlevi {
+    color: #A7D707;
+    text-decoration: none;
+    transition: color 0.1s ease;
+}
+
+.tringlevi:hover {
+    color: #c0f009;
+    text-decoration: underline;
 }
 
 .vehicle-list {
@@ -22,21 +105,22 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    padding: 20px;
+    padding: 25px;
 }
 
 .vehicle-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     width: 320px;
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .vehicle-card:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .vehicle-card img {
@@ -44,11 +128,15 @@ h1 {
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+    border-radius: 12px 12px 0 0;
 }
 
 .vehicle-card h2 {
-    padding: 10px;
-    color: #333;
+    padding: 15px;
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
 }
 
 .vehicle-card a {
@@ -58,9 +146,97 @@ h1 {
 }
 
 footer {
-    background-color: #222;
-    color: white;
+    background: #1a1a1a;
+    color: #ccc;
     text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+	
+	h2{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+	padding-right: 30px;
+	margin-left: -9px;
+}
+	
+    .top-bar {
+        padding: 12px 20px;
+        width: 480px;
+    }
+    .top-bar h1 {
+        font-size: 1.4rem;
+        margin: 0 10px;
+    }
+    .logo-container img {
+        max-height: 50px;
+		margin-left: -20px;
+    }
+    .vehicle-list {
+        padding: 20px;
+        gap: 15px;
+    }
+    .vehicle-card {
+        width: 280px;
+        border-radius: 10px;
+    }
+    .vehicle-card h2 {
+        font-size: 1.35rem;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+	
+	h2{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+	padding-right: 30px;
+	margin-left: -9px;
+}
+    .top-bar {
+        padding: 10px 15px;
+        width: 312px;
+    }
+    .top-bar h1 {
+        font-size: 1.1rem;
+        margin: 0 8px;
+    }
+    .logo-container img {
+        max-height: 40px;
+		margin-left: -20px;
+    }
+    .vehicle-list {
+        padding: 15px;
+        gap: 10px;
+    }
+    .vehicle-card {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 8px;
+    }
+    .vehicle-card h2 {
+        font-size: 1.25rem;
+        padding: 10px;
+    }
+    footer {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
 }
